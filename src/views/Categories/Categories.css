@@ -1,0 +1,9 @@
+.categoryContainer {
+	display: flex;
+	height: auto;
+	overflow: auto;
+	flex-direction: row;
+	/*margin: 10px;*/
+	background-color: #fff;
+	border: 1px solid #45454563;
+}

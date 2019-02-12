@@ -1,0 +1,43 @@
+.productCard{
+	height: 260px;
+	width: 200px;
+	border:1px solid gray;
+	margin: 0 10px;
+	border-radius: 3%;
+}
+
+.productImage {
+	height: 190px;
+	width: 160px;
+}
+
+.productName {
+	white-space: nowrap; 
+	overflow: hidden;
+	text-overflow: ellipsis;
+	width: 150px;
+ }
+
+ .textContainer {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+ 
+.price {
+	font-weight: bold;
+	color:#ff0000;
+	font-size: 20px;
+}
+
+.cod {
+	font-size: 15px;
+}
+.offer {
+	width:auto;
+	border:1px solid gray;
+	margin: 0 3px;
+	border: 1px solid #fff;
+	border-radius: 2%;
+	padding: 10px 0;
+}

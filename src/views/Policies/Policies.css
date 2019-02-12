@@ -1,0 +1,10 @@
+.policies{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+}
+
+.policy {
+	height: 120px;
+	width: 150px;
+}

@@ -1,0 +1,11 @@
+.categoryCard{
+	height: 120px;
+	width: 120px;
+	margin:10px;
+	border: 1px solid #45454563;
+}
+
+.categoryCardContainer {
+	text-align: center;
+	padding:10px 0 15px 0;
+}

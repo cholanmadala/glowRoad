@@ -1,0 +1,10 @@
+.price {
+	font-weight: bold;
+	color:#ff0000;
+	font-size: 20px;
+	text-align: center;
+}
+
+.bordered {
+	border: 1px solid gray;
+}

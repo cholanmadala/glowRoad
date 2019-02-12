@@ -1,0 +1,16 @@
+.app {
+	background-color: rgba(230,231,231);
+	padding:0;
+}
+
+.questions {
+	display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 230px;
+}
+
+.questions h6 {
+	margin-top: 15px;
+}
