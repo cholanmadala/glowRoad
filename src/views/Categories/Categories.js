@@ -1,23 +1,42 @@
-import React from 'react';
+import React, {Component} from 'react';
+import { connect } from 'react-redux';
 import { Container } from 'react-bootstrap';
+
 import CategoryCard from '../../components/CategoryCard';
+import {getCategories} from '../../actionCreators';
 
 import './Categories.css';
 
-const getCategories = (list) => {
-	const data = list.map((item, index)=>{
-		return 	<CategoryCard key={index} src={item}/>
-	});
-	return data;
-};
+class Categories extends Component {
+	
+	componentDidMount (){
+		//to get the categories, we call the actionCreator
+		this.props.getCategories();
+	}
 
+	renderCategories = (list) => {
+		const data = list.map((item, index)=>{
+			return 	<CategoryCard key={index} src={item}/>
+		});
+		return data;
+	}
 
-const Categories = () => {
-	return (
-		<Container className="categoryContainer" >
-			{getCategories(["Sarees", "Kurtis", "Bags", "Kids"])}
-		</Container>
-	);
+	render () {
+		return (
+			<Container className="categoryContainer" >
+				{this.renderCategories(this.props.categories)}
+			</Container>
+		);
+	}
 }
 
-export default Categories;
+const mapStateToProps = state => ({
+  categories: state.categories
+});
+
+export default connect(
+  mapStateToProps,
+  {
+  	getCategories
+  }
+)(Categories);

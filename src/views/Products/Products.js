@@ -1,39 +1,58 @@
-import React from 'react';
+import React, {Component} from 'react';
 import { Container} from 'react-bootstrap';
+import { connect } from 'react-redux';
 import ProductCard from '../../components/ProductCard';
+import {getProducts} from '../../actionCreators';
 
 import './Products.css';
 
-const getProducts = (data, type) => {
-	const dataContent = data.map((itemData, index)=>{
-		return 	(
-			<ProductCard key={index} data={itemData} type={type} />
+class Products extends Component {
+
+	componentDidMount() {
+		//to get the products, we call the actionCreator
+		this.props.getProducts();
+	}
+
+	getProducts = (data, type) => {
+		const dataContent = data.map((itemData, index)=>{
+			return 	(
+				<ProductCard key={index} data={itemData} type={type} />
+			);
+		});
+		return dataContent;
+	}
+
+	render() {
+		const {title, type, titleName} = Object.assign({}, this.props);
+
+		return (
+			<Container className="productContainer">
+				<div>
+					<span className="itemTitle">{title}</span>
+					{!type ? <span className="count">{` (${this.props.products.length})`}</span> : null}
+				</div>
+				<div className="productList">
+					{this.getProducts( this.props.data ? this.props.data : this.props.products, type)}
+				</div>
+				{!type ? 
+					<div className="externalLink">
+						<span>VIEW ALL {titleName}</span>
+					</div> :
+					null
+				}
+				
+			</Container>
 		);
-	});
-	return dataContent;
+	}
 };
 
+const mapStateToProps = state => ({
+  products: state.products
+});
 
-const Products = ({title, count, productData, type}) => {
-	const titleName = title.toUpperCase();
-	return (
-		<Container className="productContainer">
-			<div>
-				<span className="itemTitle">{title}</span>
-				{!type ? <span className="count">{` (${count})`}</span> : null}
-			</div>
-			<div className="productList">
-				{getProducts(productData, type)}
-			</div>
-			{!type ? 
-				<div className="externalLink">
-					<span>VIEW ALL {titleName}</span>
-				</div> :
-				null
-			}
-			
-		</Container>
-	);
-};
-
-export default Products;
+export default connect(
+  mapStateToProps,
+  {
+  	getProducts
+  }
+)(Products);

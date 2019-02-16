@@ -1,0 +1,33 @@
+.menWomenTitleContainer{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.testmonialContainer {
+	height: auto;
+	overflow: auto;
+	flex-direction: row;
+	/*margin: 10px;*/
+	background-color: #fff;
+	border: 1px solid #45454563;
+}
+
+.testImage {
+	width: 54px;
+    height: 50px;
+    border: none;
+    margin-top: -8px;
+}
+
+.testContainer {
+	display: flex;
+	margin: 15px 0;
+}
+
+.sender{
+	display: flex;
+	font-size: 12px;
+    margin-left: 13%;
+    margin-bottom: 15px;
+}
