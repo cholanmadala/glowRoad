@@ -1,4 +1,4 @@
-import {addCategory, addProduct} from '../actions';
+import {addCategory, addProduct, addToCart} from '../actions';
 
 const categories = ["Sarees", "Kurtis", "Bags", "Kids"];
 
@@ -52,7 +52,7 @@ export const getCategories = () => {
 	// as of now, using a hardcoded array
 	return (dispatch) => {
 		categories.map((item) => {
-			dispatch(addCategory(item));
+			return dispatch(addCategory(item));
 		});	
 	}
 };
@@ -62,7 +62,13 @@ export const getProducts = () => {
 	// as of now, using a hardcoded array
 	return (dispatch) => {
 		products.map((item) => {
-			dispatch(addProduct(item));
+			return dispatch(addProduct(item));
 		});
 	}
 };
+
+export const addItemsToCart = (item) => {
+	return (dispatch) => {
+		dispatch(addToCart(item));
+	}
+}

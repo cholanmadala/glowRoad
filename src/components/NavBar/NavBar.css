@@ -2,3 +2,21 @@
 	background-color: #fff;
 	border-bottom: 1px solid #45454563;
 }
+
+.cart {
+    min-width: 25px;
+    height: auto;
+    display: inline-block;
+    vertical-align: sub;
+    background-color: red;
+    border: 1px solid red;
+    border-radius: 100%;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffff;
+}
+
+.navBarBrand{
+	margin-right: 0;
+}

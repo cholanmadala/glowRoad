@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { Container} from 'react-bootstrap';
 import { connect } from 'react-redux';
 import ProductCard from '../../components/ProductCard';
-import {getProducts} from '../../actionCreators';
+import {getProducts, addItemsToCart} from '../../actionCreators';
 
 import './Products.css';
 
@@ -16,7 +16,7 @@ class Products extends Component {
 	getProducts = (data, type) => {
 		const dataContent = data.map((itemData, index)=>{
 			return 	(
-				<ProductCard key={index} data={itemData} type={type} />
+				<ProductCard onClick={this.props.addItemsToCart} key={index} data={itemData} type={type} />
 			);
 		});
 		return dataContent;
@@ -53,6 +53,7 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   {
-  	getProducts
+  	getProducts,
+  	addItemsToCart
   }
 )(Products);

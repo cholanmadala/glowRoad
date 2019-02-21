@@ -3,12 +3,12 @@ import { Container, Image} from 'react-bootstrap';
 
 import './ProductCard.css';
 
-const ProductCard = ({data, type}) => {
+const ProductCard = ({data, type, onClick}) => {
 	const {imgSrc, name, cost, codFree} = data;
 	return (
 		<div>
 		{!type ? 
-			<Container className="productCard">
+			<Container className="productCard" onClick={() => onClick(data)}>
 				<Image src={`/${imgSrc}.png`} rounded className="productImage" />
 				<div className="productName">{name}</div>
 				<div className="textContainer">
